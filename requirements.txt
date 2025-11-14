@@ -1,0 +1,34 @@
+# Core ML libraries
+torch>=2.0.0
+transformers>=4.35.0
+datasets>=2.14.0
+accelerate>=0.24.0
+peft>=0.6.0
+trl>=0.7.0
+bitsandbytes>=0.41.0
+
+# Unsloth for optimization
+unsloth
+
+# Data processing
+pandas>=2.0.0
+numpy<2.0.0
+pydantic>=2.0.0
+json-repair>=0.7.0
+
+# API clients
+openai>=1.0.0
+requests>=2.31.0
+
+# Experiment tracking
+wandb>=0.16.0
+
+# Utilities
+tqdm>=4.66.0
+pyyaml>=6.0
+python-dotenv>=1.0.0
+
+# Optional
+faker>=20.0.0
+optimum>=1.14.0
+vllm>=0.2.0
