@@ -1,0 +1,14 @@
+flowchart LR
+  RAW[Raw news JSONL: datasets/*.jsonl or data/raw/*.jsonl]
+  HAVE{SFT already exists?}
+  GEN[Generate SFT - OpenRouter teacher]
+  SFT[SFT JSONL: data/processed/sft.jsonl]
+  PREP[Chat-format and split]
+  FT[LoRA SFT training - Qwen2.5 + Unsloth]
+  SAVE[Save LoRA checkpoint: outputs/models/...]
+  TEST[Smoke test inference]
+
+  RAW --> HAVE
+  HAVE -->|No| GEN --> SFT
+  HAVE -->|Yes| SFT
+  SFT --> PREP --> FT --> SAVE --> TEST

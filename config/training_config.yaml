@@ -44,7 +44,7 @@ training:
   seed: 42
 
 data:
-  raw_data_path: "data/raw/news-sample.jsonl"
+  raw_data_path: "datasets/news-sample.jsonl"
   sft_data_path: "data/processed/sft.jsonl"
   train_test_split: 0.1
   random_seed: 42

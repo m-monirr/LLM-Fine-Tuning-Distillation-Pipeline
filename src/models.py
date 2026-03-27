@@ -1,9 +1,8 @@
-"""
-Pydantic models for data validation and schema definition.
-"""
+"""Pydantic models for data validation and schema definition."""
+
+from typing import Any, Dict, List, Literal, Optional, Union
 
 from pydantic import BaseModel, Field
-from typing import List, Optional, Literal
 
 
 StoryCategory = Literal[
@@ -77,4 +76,4 @@ class SFTRecord(BaseModel):
     task: str
     output_scheme: str
     status: Literal["success", "failed"]
-    response: dict | str
+    response: Union[Dict[str, Any], str]

@@ -1,0 +1,32 @@
+flowchart LR
+  subgraph Inputs
+    DS[(Sample datasets: datasets/*.jsonl)]
+    UD[(Your data: data/raw/*.jsonl)]
+  end
+
+  subgraph Distill[Distillation + SFT Export]
+    GEN[Generate instructions - teacher model]
+    VAL[Validate JSON - Pydantic schemas]
+    SFT[(SFT JSONL: data/processed/sft.jsonl)]
+  end
+
+  subgraph Train[Training]
+    PREP[Chat-format and split]
+    SFTTR[LoRA SFT fine-tune - Qwen2.5 + Unsloth]
+    CKPT[(LoRA checkpoint: outputs/models/...)]
+  end
+
+  subgraph Use[Inference]
+    INF[Extract / translate]
+  end
+
+  OR[OpenRouter]
+  HF[Hugging Face Hub]
+  WB[Weights & Biases]
+
+  DS --> GEN
+  UD --> GEN
+  GEN --> OR
+  GEN --> VAL --> SFT --> PREP --> SFTTR --> CKPT --> INF
+  SFTTR --> WB
+  SFTTR --> HF

@@ -3,9 +3,6 @@
 .env.local
 .env.*.local
 
-# API credentials
-api_credentials.py
-
 # Python
 __pycache__/
 *.py[cod]
@@ -39,10 +36,17 @@ checkpoints/
 models/
 lora_model/
 
-# Data
-data/
-*.jsonl
-*.csv
+# Data (generated)
+data/**
+!data/.gitkeep
+!data/raw/.gitkeep
+!data/processed/.gitkeep
+
+# Data (sample, versioned)
+!datasets/**/*.jsonl
+
+# Optional: ignore large CSV artifacts if you add them later
+data/**/*.csv
 
 # IDE
 .vscode/
@@ -56,7 +60,6 @@ wandb/
 
 # Jupyter
 .ipynb_checkpoints/
-*.ipynb
 
 # OS
 .DS_Store

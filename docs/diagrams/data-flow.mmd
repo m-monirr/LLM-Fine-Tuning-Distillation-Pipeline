@@ -1,0 +1,17 @@
+sequenceDiagram
+  participant D as Dataset (JSONL)
+  participant G as Distillation (OpenRouter)
+  participant V as Validation (Pydantic)
+  participant S as SFT JSONL
+  participant T as Trainer (LoRA SFT)
+  participant M as Model
+
+  D->>G: Arabic news stories
+  G->>V: JSON candidate outputs
+  alt Valid JSON
+    V->>S: Write success record
+  else Invalid JSON
+    V->>S: Write failed record
+  end
+  S->>T: Load + chat-format + split
+  T->>M: Fine-tune + save checkpoint
