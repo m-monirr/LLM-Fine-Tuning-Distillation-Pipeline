@@ -8,15 +8,6 @@ A complete end-to-end pipeline for finetuning Qwen models on Arabic news data fo
 
 > Note: Any “metrics/benchmarks” sections in this README are **placeholders** until you replace them with results from your own training runs.
 
-## 🧾 CV / Resume Description
-
-Built an end-to-end LLM fine-tuning pipeline for Arabic news understanding:
-
-- Distilled instruction data from a larger model (DeepSeek via OpenRouter) into structured JSON targets
-- Validated generated outputs with Pydantic schemas and exported an SFT-ready JSONL dataset
-- Fine-tuned Qwen2.5 with LoRA + 4-bit quantization (Unsloth/TRl-style SFT) and tracked experiments with W&B
-- Shipped notebooks + scripts for dataset generation, training, and inference
-
 ---
 
 ## 📋 Table of Contents
